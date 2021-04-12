@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AR_Opdracten_Collectie", "AR_Opdracten_Collectie\AR_Opdracten_Collectie.csproj", "{6486DC10-96A5-4532-8031-7596ECA8977B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6486DC10-96A5-4532-8031-7596ECA8977B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6486DC10-96A5-4532-8031-7596ECA8977B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6486DC10-96A5-4532-8031-7596ECA8977B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6486DC10-96A5-4532-8031-7596ECA8977B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F670E117-CCBB-4989-8235-2860271CDB65}
+	EndGlobalSection
+EndGlobal
