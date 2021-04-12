@@ -70,7 +70,7 @@ namespace AR_Opdracten_Collectie.Formatieve
 
         double TotaalPrijs()
         {
-            if (GetHuurder() != null && GetGehuurdeAuto() != null)
+            if (huurder != null && gehuurdeAuto != null)
             {
                 return (gehuurdeAuto.GetPrijsPerDag() * aantalDagen) * (1-huurder.GetKorting()/100);
             }
@@ -83,7 +83,7 @@ namespace AR_Opdracten_Collectie.Formatieve
         public string toString()
         {
             string Output = "";
-            if (GetGehuurdeAuto() != null)
+            if (gehuurdeAuto != null)
             {
                 Output += gehuurdeAuto.toString();
             }

@@ -34,7 +34,27 @@ namespace AR_Opdracten_Collectie.Formatieve
 
 
             // Druk personen p1 p2 p3 nu af naar de console
-
+            Console.WriteLine("p1: " + p1.name + " heeft een budget van " + p1.budget + " en bezit de volgende games:\n");
+            foreach (var item in p1.GameVerzameling)
+            {
+                int yeardiffrence = DateTime.Now.Year - item.releaseyear;
+                double oldprice = item.prijs * Math.Pow(0.70 ,yeardiffrence);
+                Console.WriteLine(item.name + ", uitgegeven in " + item.releaseyear + "; nieuwprijs:" + item.prijs + " nu voor: " + oldprice);
+            }
+            Console.WriteLine("p2: "+ p2.name + " heeft een budget van " + p2.budget + " en bezit de volgende games:\n");
+            foreach (var item in p2.GameVerzameling)
+            {
+                int yeardiffrence = DateTime.Now.Year - item.releaseyear;
+                double oldprice = item.prijs * Math.Pow(0.70, yeardiffrence);
+                Console.WriteLine(item.name + ", uitgegeven in " + item.releaseyear + "; nieuwprijs:" + item.prijs + " nu voor: " + oldprice);
+            }
+            Console.WriteLine("p3: " + p3.name + " heeft een budget van " + p3.budget + " en bezit de volgende games:\n");
+            foreach (var item in p3.GameVerzameling)
+            {
+                int yeardiffrence = DateTime.Now.Year - item.releaseyear;
+                double oldprice = item.prijs * Math.Pow(0.70, yeardiffrence);
+                Console.WriteLine(item.name + ", uitgegeven in " + item.releaseyear + "; nieuwprijs:" + item.prijs + " nu voor: " + oldprice);
+            }
 
             // Druk de volgende transacties af (pas de code aan)
             p1.Verkoop(g1, p3);
@@ -63,9 +83,9 @@ namespace AR_Opdracten_Collectie.Formatieve
 
     class Persoon
     {
-        string name;
-        double budget;
-        List<Game> GameVerzameling = new List<Game>();
+        public string name;
+        public double budget;
+        public List<Game> GameVerzameling = new List<Game>();
 
 
         public Persoon(string nm,int bd)
@@ -76,9 +96,16 @@ namespace AR_Opdracten_Collectie.Formatieve
 
         public void Koop(Game _game)
         {
-            if (budget >= _game.prijs)
+            bool InVerzameling = GameVerzameling.Exists(x => x.name == _game.name);
+            if (budget >= _game.prijs && !InVerzameling)
             {
+                Console.WriteLine(name + " koopt " + _game.name + " gelukt");
+                budget -= _game.prijs;
                 GameVerzameling.Add(_game);
+            }
+            else
+            {
+                Console.WriteLine(name + " koopt " + _game.name + " niet gelukt");
             }
         }
 
