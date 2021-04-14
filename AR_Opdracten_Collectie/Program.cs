@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AR_Opdracten_Collectie
+namespace AP_Opdracten_Collectie
 {
     class Program
     {
