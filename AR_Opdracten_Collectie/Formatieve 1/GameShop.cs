@@ -29,6 +29,8 @@ namespace AR_Opdracten_Collectie.Formatieve
             p2.Koop(g1);
             p3.Koop(g3);
 
+            Console.WriteLine("\n");
+
             // Druk personen p1 p2 p3 nu af naar de console
             Console.WriteLine("p1: " + p1.name + " heeft een budget van " + p1.budget + " en bezit de volgende games:\n");
             PrintOutPersoonLibary(p1);
@@ -43,6 +45,7 @@ namespace AR_Opdracten_Collectie.Formatieve
             p1.Verkoop(g1, p3);
             p2.Verkoop(g2, p3);
             p2.Verkoop(g1, p1);
+            Console.WriteLine("\n");
 
             // Druk personen p1 p2 p3 nu af naar de console
             Console.WriteLine("p1: " + p1.name + " heeft een budget van " + p1.budget + " en bezit de volgende games:\n");
@@ -100,6 +103,7 @@ namespace AR_Opdracten_Collectie.Formatieve
 
         public void Koop(Game _game)
         {
+            
             bool InVerzameling = gameVerzameling.Exists(x => x.name == _game.name);
             if (budget >= _game.prijs && !InVerzameling)
             {
@@ -115,12 +119,14 @@ namespace AR_Opdracten_Collectie.Formatieve
 
         public void Verkoop(Game _game, Persoon _anderepersoon)
         {
+            bool InBezit = gameVerzameling.Exists(x => x.name == _game.name);
             bool InVerzamelingVanAnder = _anderepersoon.gameVerzameling.Exists(x => x.name == _game.name);
-            if (_anderepersoon.budget >= _game.prijs && !InVerzamelingVanAnder)
+
+            if (_anderepersoon.budget >= _game.prijs && !InVerzamelingVanAnder && InBezit)
             {
                 double _gameprijs = TestGameShop.GetGameNewPrice(_game);
 
-                Console.WriteLine(name + " koopt " + _game.name + " gelukt");
+                Console.WriteLine(name + " verkoopt " + _game.name + " aan " + _anderepersoon.name + " gelukt");
 
                 _anderepersoon.budget -= _gameprijs;
                 budget += _gameprijs;
@@ -129,7 +135,7 @@ namespace AR_Opdracten_Collectie.Formatieve
             }
             else
             {
-                Console.WriteLine(name + " koopt " + _game.name + " niet gelukt");
+                Console.WriteLine(name + " verkoopt " + _game.name + " aan " + _anderepersoon.name + ": niet gelukt");
             }
 
         }
