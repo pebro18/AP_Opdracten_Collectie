@@ -12,6 +12,7 @@ namespace AR_Opdracten_Collectie.Summatieve_1
 
         public Tournooi(Wedstrijd[] wedstrijden)
         {
+            Wedstrijden = new Wedstrijd[wedstrijden.Length];
             Wedstrijden = wedstrijden;
         }
     }

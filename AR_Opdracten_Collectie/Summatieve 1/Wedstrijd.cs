@@ -15,6 +15,7 @@ namespace AR_Opdracten_Collectie.Summatieve_1
 
         public Wedstrijd(Zwemmer[] deelnemers, Sheidsrechter sheids, TypeZwemSlag slag)
         {
+            Deelnemers = new Zwemmer[deelnemers.Length];
             Deelnemers = deelnemers;
             Sheids = sheids;
             Slag = slag;
