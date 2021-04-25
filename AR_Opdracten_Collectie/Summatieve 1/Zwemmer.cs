@@ -10,16 +10,17 @@ namespace AR_Opdracten_Collectie.Summatieve_1
     {
         public List<Tuple<TypeZwemSlag, float>> ZwemmerTijden { get; set; }
 
-        Zwemmer(string naam, int leeftijd, List<Tuple<TypeZwemSlag, float>> zwemmerTijden = null)
+        public Zwemmer(string naam, int leeftijd, List<Tuple<TypeZwemSlag, float>> zwemmerTijden = null)
         {
             Naam = naam;
             Leeftijd = leeftijd;
+            ZwemmerTijden = new();
             ZwemmerTijden = zwemmerTijden;
         }
 
         public void SetBestTime(TypeZwemSlag type, float tijd)
         {
-
+            
         }
 
         public float GetBestTime(TypeZwemSlag type)
@@ -27,5 +28,9 @@ namespace AR_Opdracten_Collectie.Summatieve_1
             return 0;
         }
 
+        public override string ToString()
+        {
+            return null;
+        }
     }
 }

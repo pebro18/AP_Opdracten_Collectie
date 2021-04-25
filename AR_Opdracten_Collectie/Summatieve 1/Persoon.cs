@@ -16,12 +16,6 @@ namespace AR_Opdracten_Collectie.Summatieve_1
 
         }
 
-        public Persoon(string naam, int leeftijd)
-        {
-            Naam = naam;
-            Leeftijd = leeftijd;
-        }
-
         public override string ToString()
         {
             return null;
