@@ -8,7 +8,24 @@ namespace AR_Opdracten_Collectie.Summatieve_1
 {
     class Zwemmer : Persoon, IDeelnemer
     {
-        public float SwimTime { get; set; }
+        public List<Tuple<TypeZwemSlag, float>> ZwemmerTijden { get; set; }
+
+        Zwemmer(string naam, int leeftijd, List<Tuple<TypeZwemSlag, float>> zwemmerTijden = null)
+        {
+            Naam = naam;
+            Leeftijd = leeftijd;
+            ZwemmerTijden = zwemmerTijden;
+        }
+
+        public void SetBestTime(TypeZwemSlag type, float tijd)
+        {
+
+        }
+
+        public float GetBestTime(TypeZwemSlag type)
+        {
+            return 0;
+        }
 
     }
 }

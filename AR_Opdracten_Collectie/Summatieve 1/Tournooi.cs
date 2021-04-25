@@ -8,5 +8,11 @@ namespace AR_Opdracten_Collectie.Summatieve_1
 {
     class Tournooi
     {
+        Wedstrijd[] Wedstrijden;
+
+        public Tournooi(Wedstrijd[] wedstrijden)
+        {
+            Wedstrijden = wedstrijden;
+        }
     }
 }

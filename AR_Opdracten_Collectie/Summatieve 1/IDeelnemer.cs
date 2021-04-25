@@ -8,7 +8,10 @@ namespace AR_Opdracten_Collectie.Summatieve_1
 {
     interface IDeelnemer
     {
-        public float SwimTime { get; set; }
+        public List<Tuple<TypeZwemSlag, float>> ZwemmerTijden { get; set; }
 
+        public void SetBestTime(TypeZwemSlag type, float tijd);
+
+        public float GetBestTime(TypeZwemSlag type);
     }
 }

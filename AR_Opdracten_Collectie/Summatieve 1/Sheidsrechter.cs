@@ -8,5 +8,10 @@ namespace AR_Opdracten_Collectie.Summatieve_1
 {
     class Sheidsrechter : Persoon
     {
+        Sheidsrechter(string naam, int leeftijd)
+        {
+            Naam = naam;
+            Leeftijd = leeftijd;
+        }
     }
 }

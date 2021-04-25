@@ -12,6 +12,5 @@ namespace AR_Opdracten_Collectie.Summatieve_1
         SchoolSlag,
         VrijeSlag,
         VlinderSlag
-
     }
 }
