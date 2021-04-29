@@ -30,7 +30,11 @@ namespace AR_Opdracten_Collectie.Formatieve_2
             {
                 Node _currentNode = NodeHistory.Last();
                 Node _newNode = _currentNode.GotoConnectingNode(command);
-                if (_newNode == null) break;         
+                if (_newNode == null)
+                {
+                    Console.WriteLine($"Node Error bij: {_currentNode}");
+                    break;
+                }      
                 NodeHistory.Add(_newNode);
             }
             foreach (var item in NodeHistory)
@@ -38,29 +42,6 @@ namespace AR_Opdracten_Collectie.Formatieve_2
                 Console.WriteLine(item.name);
             }
         }
-    }
-
-    class Node
-    {
-        public string name;
-        public Node NodeA { set; get; }
-        public Node NodeB { set; get; }
-
-        public Node(string name)
-        {
-            this.name = name;
-        }
-
-        public Node GotoConnectingNode(char GoTo)
-        {
-            return GoTo switch
-            {
-                'A' => NodeA,
-                'B' => NodeB,
-                _ => null,
-            };
-        }
-
     }
 
 }
