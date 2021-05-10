@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Summatieve 2", "Summatieve 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Formatieve 2", "Formatieve 2\Formatieve 2.csproj", "{0ECE75B8-45B9-469B-BA78-DC6B13D37744}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Summatieve2tests", "Summatieve2tests\Summatieve2tests.csproj", "{CE6ECDC3-EE55-4A97-8B64-6ADD9A444EE9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{0ECE75B8-45B9-469B-BA78-DC6B13D37744}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0ECE75B8-45B9-469B-BA78-DC6B13D37744}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0ECE75B8-45B9-469B-BA78-DC6B13D37744}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE6ECDC3-EE55-4A97-8B64-6ADD9A444EE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE6ECDC3-EE55-4A97-8B64-6ADD9A444EE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE6ECDC3-EE55-4A97-8B64-6ADD9A444EE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE6ECDC3-EE55-4A97-8B64-6ADD9A444EE9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
