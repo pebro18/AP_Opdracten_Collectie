@@ -1,5 +1,4 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
 using AR_Opdracten_Collectie.Summatieve_2;
 
 namespace Summatieve2tests
