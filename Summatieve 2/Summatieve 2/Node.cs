@@ -1,27 +1,31 @@
-﻿namespace AR_Opdracten_Collectie.Formatieve_2
+﻿using System.Collections.Generic;
+
+namespace AR_Opdracten_Collectie.Summatieve_2
 {
-    class Node
+    public class Node
     {
-        public string name;
-        public Node NodeA { set; get; }
-        public Node NodeB { set; get; }
+        public string Name;
+        public List<Node> ConnectingNodesList = new();
 
         public Node(string name)
         {
-            this.name = name;
+            Name = name;
         }
 
-        public Node GotoConnectingNode(char GoTo)
+        public void AddNodeToList(Node _node)
         {
-            return GoTo switch
-            {
-                'A' => NodeA,
-                'B' => NodeB,
-                _ => null,
-            };
-
+            ConnectingNodesList.Add(_node);
         }
 
-    }
+        public Node GotoConnectingNode(string GoToNodeName)
+        {
+            Node FoundNode = ConnectingNodesList.Find(x => x.Name == GoToNodeName);
 
+            if (FoundNode != null)
+            {
+                return FoundNode;
+            }
+            return null;
+        }
+    }
 }
