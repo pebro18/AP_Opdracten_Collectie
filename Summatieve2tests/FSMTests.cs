@@ -66,8 +66,8 @@ namespace Summatieve2tests
             Machiene.LinkNodeToOtherNodes(Machiene.NodeList[2], LinkArray1);
 
             //Act
-            string[] commands = new[] { "1", "4"};
-            Machiene.GoToNextNode(commands);
+            string[] Commands = new[] { "1", "4"};
+            Machiene.GoToNextNode(Commands);
 
             //Assert
             Node[] Expected = new[]
@@ -98,8 +98,8 @@ namespace Summatieve2tests
             Machiene.LinkNodeToOtherNodes(Machiene.NodeList[4], LinkArray5);
 
             //Act
-            string[] commands = new[] { "1", "2", "3", "1", "2" };
-            Machiene.GoToNextNode(commands);
+            string[] Commands = new[] { "1", "2", "3", "1", "2" };
+            Machiene.GoToNextNode(Commands);
 
             //Assert
             Node[] Expected = new[]
