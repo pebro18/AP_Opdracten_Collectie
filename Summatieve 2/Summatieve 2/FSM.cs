@@ -22,7 +22,6 @@ namespace AR_Opdracten_Collectie.Summatieve_2
             {
                 GenNodeList.Add(new Node($"{i}"));
             }
-
             return GenNodeList;
         }
 
@@ -30,7 +29,14 @@ namespace AR_Opdracten_Collectie.Summatieve_2
         {
             foreach (var node in LinkingToNodes)
             {
-                TargetNode.AddNodeToList(node);
+                if (NodeList.Contains(node))
+                {
+                    TargetNode.AddNodeToList(node);
+                }
+                else
+                {
+                    Console.WriteLine("Node bestaat niet in lijst");
+                }
             }
         }
 
