@@ -2,13 +2,13 @@
 {
     class Node
     {
-        public string name;
+        public string Name;
         public Node NodeA { set; get; }
         public Node NodeB { set; get; }
 
         public Node(string name)
         {
-            this.name = name;
+            Name = name;
         }
 
         public Node GotoConnectingNode(char GoTo)
