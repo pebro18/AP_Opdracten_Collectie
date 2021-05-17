@@ -39,7 +39,7 @@ namespace AR_Opdracten_Collectie.Formatieve_2
             }
             foreach (var item in NodeHistory)
             {
-                Console.WriteLine(item.name);
+                Console.WriteLine(item.Name);
             }
         }
     }
