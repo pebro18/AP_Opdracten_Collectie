@@ -18,6 +18,29 @@ namespace Summatieve2tests
         }
 
         [TestMethod]
+        public void TestFSMIfNodeExistBeforeLinkingToIt()
+        {
+            //Arrange
+            const int GenerateAmount = 3;
+            FSM Machiene = new(GenerateAmount);
+            
+            Node[] LinkArray1 = new[] { Machiene.NodeList[1]};
+            Machiene.LinkNodeToOtherNodes(Machiene.NodeList[0], LinkArray1);
+
+            Node[] LinkArray2 = new[] { Machiene.NodeList[2] };
+            Machiene.LinkNodeToOtherNodes(Machiene.NodeList[1], LinkArray2);
+
+            //Act
+            // this should be an error
+            Node ErrorNode = new("4");
+            Node[] LinkArray3 = new[] { ErrorNode };
+            Machiene.LinkNodeToOtherNodes(Machiene.NodeList[2], LinkArray3);
+
+            //Assert
+            Assert.AreNotEqual(1,Machiene.NodeList[2].ConnectingNodesList.Count);
+        }
+
+        [TestMethod]
         public void TestFSMTestConnections()
         {
             //Arrange
@@ -60,13 +83,13 @@ namespace Summatieve2tests
             Machiene.LinkNodeToOtherNodes(Machiene.NodeList[0], LinkArray1);
 
             Node[] LinkArray2 = new[] { Machiene.NodeList[2] };
-            Machiene.LinkNodeToOtherNodes(Machiene.NodeList[1], LinkArray1);
+            Machiene.LinkNodeToOtherNodes(Machiene.NodeList[1], LinkArray2);
 
             Node[] LinkArray3 = new[] { Machiene.NodeList[0] };
-            Machiene.LinkNodeToOtherNodes(Machiene.NodeList[2], LinkArray1);
+            Machiene.LinkNodeToOtherNodes(Machiene.NodeList[2], LinkArray3);
 
             //Act
-            string[] Commands = new[] { "1", "4"};
+            string[] Commands = new[] { "1", "4" };
             Machiene.GoToNextNode(Commands);
 
             //Assert
@@ -77,7 +100,7 @@ namespace Summatieve2tests
             };
 
             Node[] Result = Machiene.NodeHistory.ToArray();
-            Assert.IsTrue(CheckIfNodeArraysAreEqualInContent(Expected,Result));
+            Assert.IsTrue(CheckIfNodeArraysAreEqualInContent(Expected, Result));
         }
 
         [TestMethod]
