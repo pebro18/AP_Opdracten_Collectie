@@ -37,7 +37,7 @@ namespace Summatieve2tests
             Machiene.LinkNodeToOtherNodes(Machiene.NodeList[2], LinkArray3);
 
             //Assert
-            Assert.AreNotEqual(1,Machiene.NodeList[2].ConnectingNodesList.Count);
+            Assert.AreEqual(0,Machiene.NodeList[2].ConnectingNodesList.Count);
         }
 
         [TestMethod]
