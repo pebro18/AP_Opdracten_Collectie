@@ -27,26 +27,9 @@ namespace Summatieve3Tests
                                         ( 2,Travel.ReisLijst[1])};
             Travel.LinkStapWithOthers(Travel.ReisLijst[2], Three);
             Travel.CalculateAllPathsFromStart(Travel.ReisLijst[0]);
-            Assert.AreEqual(5,Travel.ReisLijst[1].GetCost());
+            Assert.AreEqual(0, Travel.ReisLijst[0].GetCost());
+            Assert.AreEqual(1,Travel.ReisLijst[1].GetCost());
+            Assert.AreEqual(5, Travel.ReisLijst[2].GetCost());
         }
-        [TestMethod]
-        public void TestGetStepOfMinDistance()
-        {
-            Reis Travel = new(5, "Vliegtuig");
-            (int, Stap)[] One = new[]{ (1,Travel.ReisLijst[1]),
-                                        ( 4,Travel.ReisLijst[2])};
-            Travel.LinkStapWithOthers(Travel.ReisLijst[0], One);
-            (int, Stap)[] Two = new[]{ (1,Travel.ReisLijst[0]),
-                                        ( 2,Travel.ReisLijst[2])};
-            Travel.LinkStapWithOthers(Travel.ReisLijst[1], Two);
-            (int, Stap)[] Three = new[]{ (4,Travel.ReisLijst[0]),
-                                        ( 2,Travel.ReisLijst[1])};
-            Travel.LinkStapWithOthers(Travel.ReisLijst[2], Three);
-            Travel.CalculateAllPathsFromStart(Travel.ReisLijst[0]);
-            int HighestCost = Travel.ReisLijst.Max(x => x.GetCost());
-
-            Assert.AreEqual(5,HighestCost);
-        }
-
     }
 }
