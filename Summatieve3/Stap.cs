@@ -1,13 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Summatieve3
 {
-    class Stap
+    public class Stap
     {
-        public string Name;
+        public string Destination { get; }
+        public SortedList<int,Stap> ConnectedStappen = new(); // PriorityQueue weight,stap
+
+        public Stap(string _name)
+        {
+            Destination = _name;
+        }
+        public void AddConnectedStap((int, Stap) _addedStap)
+        {
+            ConnectedStappen.Add(_addedStap.Item1,_addedStap.Item2);
+        }
+        
+        public virtual int GetCost()
+        {
+            return 0;
+        }
+
+
+        public virtual void SetCostOfSelf(int _cost)
+        {
+
+        }
     }
 }

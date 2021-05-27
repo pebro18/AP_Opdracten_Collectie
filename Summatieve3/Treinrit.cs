@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Summatieve3
 {
@@ -10,5 +8,17 @@ namespace Summatieve3
     {
         public int Minuten;
 
+        public Treinrit(string _name, int _tijdInMin) : base(_name)
+        {
+            Minuten = _tijdInMin;
+        }
+        public override int GetCost()
+        {
+            return Minuten;
+        }
+        public override void SetCostOfSelf(int _cost)
+        {
+            Minuten = _cost;
+        }
     }
 }
