@@ -1,6 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Summatieve3;
-using System.Linq;
 
 namespace Summatieve3Tests
 {
