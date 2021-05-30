@@ -23,21 +23,16 @@ namespace Summatieve2tests
             //Arrange
             const int GenerateAmount = 3;
             FSM Machiene = new(GenerateAmount);
-            
-            Node[] LinkArray1 = new[] { Machiene.NodeList[1]};
-            Machiene.LinkNodeToOtherNodes(Machiene.NodeList[0], LinkArray1);
 
-            Node[] LinkArray2 = new[] { Machiene.NodeList[2] };
-            Machiene.LinkNodeToOtherNodes(Machiene.NodeList[1], LinkArray2);
-
+            Machiene.LinkNodeToOtherNodes(Machiene.NodeList[0], new int[] { 1 });
+            Machiene.LinkNodeToOtherNodes(Machiene.NodeList[1], new int[] { 2 });
             //Act
             // this should be an error
             Node ErrorNode = new("4");
-            Node[] LinkArray3 = new[] { ErrorNode };
-            Machiene.LinkNodeToOtherNodes(Machiene.NodeList[2], LinkArray3);
+            Machiene.LinkNodeToOtherNodes(Machiene.NodeList[2], new int[] { 4 });
 
             //Assert
-            Assert.AreEqual(0,Machiene.NodeList[2].ConnectingNodesList.Count);
+            Assert.AreEqual(0, Machiene.NodeList[2].GetCount());
         }
 
         [TestMethod]
@@ -48,28 +43,23 @@ namespace Summatieve2tests
             FSM Machiene = new(GenerateAmount);
 
             //Act
-            Node[] LinkArray1 = new[] { Machiene.NodeList[0], Machiene.NodeList[1], Machiene.NodeList[3] };
-            Machiene.LinkNodeToOtherNodes(Machiene.NodeList[0], LinkArray1);
 
-            Node[] LinkArray2 = new[] { Machiene.NodeList[2] };
-            Machiene.LinkNodeToOtherNodes(Machiene.NodeList[1], LinkArray2);
+            Machiene.LinkNodeToOtherNodes(Machiene.NodeList[0], new int[] { 0, 1, 3 });
 
-            Node[] LinkArray3 = new[] { Machiene.NodeList[1], Machiene.NodeList[2], Machiene.NodeList[3] };
-            Machiene.LinkNodeToOtherNodes(Machiene.NodeList[2], LinkArray3);
+            Machiene.LinkNodeToOtherNodes(Machiene.NodeList[1], new int[] { 2 });
 
-            Node[] LinkArray4 = new[] { Machiene.NodeList[1], Machiene.NodeList[4], Machiene.NodeList[0] };
-            Machiene.LinkNodeToOtherNodes(Machiene.NodeList[3], LinkArray4);
+            Machiene.LinkNodeToOtherNodes(Machiene.NodeList[2], new int[]{1, 2, 3});
 
-            Node[] LinkArray5 = new[] { Machiene.NodeList[0], Machiene.NodeList[1] };
-            Machiene.LinkNodeToOtherNodes(Machiene.NodeList[4], LinkArray5);
+            Machiene.LinkNodeToOtherNodes(Machiene.NodeList[3], new int[] { 1, 4, 0 });
 
+            Machiene.LinkNodeToOtherNodes(Machiene.NodeList[4], new int[] { 0, 1 });
 
             //Assert
-            Assert.AreEqual(3, Machiene.NodeList[0].ConnectingNodesList.Count);
-            Assert.AreEqual(1, Machiene.NodeList[1].ConnectingNodesList.Count);
-            Assert.AreEqual(3, Machiene.NodeList[2].ConnectingNodesList.Count);
-            Assert.AreEqual(3, Machiene.NodeList[3].ConnectingNodesList.Count);
-            Assert.AreEqual(2, Machiene.NodeList[4].ConnectingNodesList.Count);
+            Assert.AreEqual(3, Machiene.NodeList[0].GetCount());
+            Assert.AreEqual(1, Machiene.NodeList[1].GetCount());
+            Assert.AreEqual(3, Machiene.NodeList[2].GetCount());
+            Assert.AreEqual(3, Machiene.NodeList[3].GetCount());
+            Assert.AreEqual(2, Machiene.NodeList[4].GetCount());
         }
 
         [TestMethod]
@@ -80,16 +70,16 @@ namespace Summatieve2tests
             FSM Machiene = new(GenerateAmount);
 
             Node[] LinkArray1 = new[] { Machiene.NodeList[1] };
-            Machiene.LinkNodeToOtherNodes(Machiene.NodeList[0], LinkArray1);
+            Machiene.LinkNodeToOtherNodes(Machiene.NodeList[0], new int[] { 1 });
 
             Node[] LinkArray2 = new[] { Machiene.NodeList[2] };
-            Machiene.LinkNodeToOtherNodes(Machiene.NodeList[1], LinkArray2);
+            Machiene.LinkNodeToOtherNodes(Machiene.NodeList[1], new int[] { 2 });
 
             Node[] LinkArray3 = new[] { Machiene.NodeList[0] };
-            Machiene.LinkNodeToOtherNodes(Machiene.NodeList[2], LinkArray3);
+            Machiene.LinkNodeToOtherNodes(Machiene.NodeList[2], new int[] { 3 });
 
             //Act
-            string[] Commands = new[] { "1", "4" };
+            int[] Commands = new[] { 1, 4 };
             Machiene.GoToNextNode(Commands);
 
             //Assert
@@ -109,19 +99,19 @@ namespace Summatieve2tests
             //Arrange
             const int GenerateAmount = 5;
             FSM Machiene = new(GenerateAmount);
-            Node[] LinkArray1 = new[] { Machiene.NodeList[0], Machiene.NodeList[1], Machiene.NodeList[3] };
-            Machiene.LinkNodeToOtherNodes(Machiene.NodeList[0], LinkArray1);
-            Node[] LinkArray2 = new[] { Machiene.NodeList[2] };
-            Machiene.LinkNodeToOtherNodes(Machiene.NodeList[1], LinkArray2);
-            Node[] LinkArray3 = new[] { Machiene.NodeList[1], Machiene.NodeList[2], Machiene.NodeList[3] };
-            Machiene.LinkNodeToOtherNodes(Machiene.NodeList[2], LinkArray3);
-            Node[] LinkArray4 = new[] { Machiene.NodeList[1], Machiene.NodeList[4], Machiene.NodeList[0] };
-            Machiene.LinkNodeToOtherNodes(Machiene.NodeList[3], LinkArray4);
-            Node[] LinkArray5 = new[] { Machiene.NodeList[0], Machiene.NodeList[1] };
-            Machiene.LinkNodeToOtherNodes(Machiene.NodeList[4], LinkArray5);
+
+            Machiene.LinkNodeToOtherNodes(Machiene.NodeList[0], new int[] { 0, 1, 3 });
+
+            Machiene.LinkNodeToOtherNodes(Machiene.NodeList[1], new int[] { 2 });
+
+            Machiene.LinkNodeToOtherNodes(Machiene.NodeList[2], new int[] { 1, 2, 3 });
+
+            Machiene.LinkNodeToOtherNodes(Machiene.NodeList[3], new int[] { 1, 4, 0 });
+
+            Machiene.LinkNodeToOtherNodes(Machiene.NodeList[4], new int[] { 0, 1 });
 
             //Act
-            string[] Commands = new[] { "1", "2", "3", "1", "2" };
+            int[] Commands = new[] { 1, 2, 3, 1, 2 };
             Machiene.GoToNextNode(Commands);
 
             //Assert
