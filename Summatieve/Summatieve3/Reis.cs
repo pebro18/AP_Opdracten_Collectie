@@ -40,6 +40,25 @@ namespace Summatieve3
                 }
 
             }
+
+            //function dijkstra(G, S)
+            //for each vertex V in G
+            //    distance[V] < -infinite
+            //    previous[V] < -NULL
+            //    If V != S, add V to Priority Queue Q
+            //distance[S] < -0
+
+
+            //while Q IS NOT EMPTY
+            //    U < -Extract MIN from Q
+            //    for each unvisited neighbour V of U
+            //        tempDistance < -distance[U] + edge_weight(U, V)
+            //        if tempDistance < distance[V]
+            //            distance[V] < -tempDistance
+            //            previous[V] < -U
+            //return distance[], previous[]
+
+
         }
 
         public Stap GetStepOfMinDistance(Stap _current,List<Stap> _visited)
@@ -71,6 +90,7 @@ namespace Summatieve3
             Reis compareObj = (Reis)_reisObj;
 
             // niet dit maar vergelijkt kosten en reistijd en shit
+            // https://youtu.be/O1ZRV32jclY 
 
         }
 
