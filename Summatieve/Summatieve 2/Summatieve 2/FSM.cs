@@ -25,13 +25,14 @@ namespace AR_Opdracten_Collectie.Summatieve_2
             return GenNodeList;
         }
 
-        public void LinkNodeToOtherNodes(Node TargetNode, Node[] LinkingToNodes)
+        public void LinkNodeToOtherNodes(Node TargetNode, int[] LinkingToNumber)
         {
-            foreach (var node in LinkingToNodes)
+            foreach (var number in LinkingToNumber)
             {
-                if (NodeList.Contains(node))
+                Node Found = NodeList.Find(x => x.Name == number.ToString());
+                if (Found != null)
                 {
-                    TargetNode.AddNodeToList(node);
+                    TargetNode.AddNodeToList(number,Found);
                 }
                 else
                 {
@@ -40,9 +41,9 @@ namespace AR_Opdracten_Collectie.Summatieve_2
             }
         }
 
-        public void GoToNextNode(string[] NodeNummer)
+        public void GoToNextNode(int[] NodeNummer)
         {
-            foreach (string nummer in NodeNummer)
+            foreach (int nummer in NodeNummer)
             {
                 Node _CurrentNode = NodeHistory.Last();
                 Node _NewNode = _CurrentNode.GotoConnectingNode(nummer);

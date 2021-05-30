@@ -14,22 +14,16 @@ namespace AR_Opdracten_Collectie.Summatieve_2
             {
                 Console.WriteLine($"Node {node.Name}: geef aan in nummers waaraan de node gaat verbinden en gebruik kommas om andere nummer aan te geven");
                 string InputString = Console.ReadLine();
-                string[] Numbers = InputString.Split(',');
-
-                List<Node> LinkingToNodes = new();
-                foreach (var number in Numbers)
-                {
-                    Node FoundNode = StateMachiene.NodeList.Find(x => x.Name == number);
-                    LinkingToNodes.Add(FoundNode);
-                }
-
-                StateMachiene.LinkNodeToOtherNodes(node, LinkingToNodes.ToArray());
+                string[] NumbersString = InputString.Split(',');
+                int[] Numbers = Array.ConvertAll(NumbersString, int.Parse);
+                StateMachiene.LinkNodeToOtherNodes(node, Numbers);
             }
 
             Console.WriteLine("Voer in Nummers met kommas tussen");
             string InputCommands = Console.ReadLine();
             string[] Commands = InputCommands.Split(',');
-            StateMachiene.GoToNextNode(Commands);
+            int[] ParsedCommands = Array.ConvertAll(Commands, int.Parse);
+            StateMachiene.GoToNextNode(ParsedCommands);
 
             foreach (var Node in StateMachiene.NodeHistory)
             {
