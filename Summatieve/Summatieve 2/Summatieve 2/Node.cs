@@ -5,27 +5,29 @@ namespace AR_Opdracten_Collectie.Summatieve_2
     public class Node
     {
         public string Name;
-        public List<Node> ConnectingNodesList = new();
+        Dictionary<int, Node> ConnectingNodesList = new();
 
         public Node(string name)
         {
             Name = name;
         }
 
-        public void AddNodeToList(Node _node)
+        public void AddNodeToList(int _key, Node _node)
         {
-            ConnectingNodesList.Add(_node);
+            ConnectingNodesList.Add(_key, _node);
         }
 
-        public Node GotoConnectingNode(string GoToNodeName)
+        public Node GotoConnectingNode(int GoToNodeKey)
         {
-            Node FoundNode = ConnectingNodesList.Find(x => x.Name == GoToNodeName);
-
-            if (FoundNode != null)
+            if (ConnectingNodesList.ContainsKey(GoToNodeKey))
             {
-                return FoundNode;
+                return ConnectingNodesList[GoToNodeKey]; ;
             }
             return null;
+        }
+        public int GetCount()
+        {
+            return ConnectingNodesList.Count;
         }
     }
 }
