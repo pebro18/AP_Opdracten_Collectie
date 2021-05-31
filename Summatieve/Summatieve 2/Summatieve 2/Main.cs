@@ -10,7 +10,7 @@ namespace AR_Opdracten_Collectie.Summatieve_2
             Console.WriteLine("Hoeveel nodes wil je genereren");
             int Amount = Int32.Parse(Console.ReadLine());
             FSM StateMachiene = new(Amount);
-            foreach (var node in StateMachiene.NodeList)
+            foreach (var node in StateMachiene.GetNodeListNodes())
             {
                 Console.WriteLine($"Node {node.Name}: geef aan in nummers waaraan de node gaat verbinden en gebruik kommas om andere nummer aan te geven");
                 string InputString = Console.ReadLine();
@@ -25,7 +25,7 @@ namespace AR_Opdracten_Collectie.Summatieve_2
             int[] ParsedCommands = Array.ConvertAll(Commands, int.Parse);
             StateMachiene.GoToNextNode(ParsedCommands);
 
-            foreach (var Node in StateMachiene.NodeHistory)
+            foreach (var Node in StateMachiene.GetNodeHistoryNodes())
             {
                 Console.WriteLine(Node.Name);
             }
