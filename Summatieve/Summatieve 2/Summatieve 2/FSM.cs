@@ -6,8 +6,8 @@ namespace AR_Opdracten_Collectie.Summatieve_2
 {
     public class FSM
     {
-        public List<Node> NodeList;
-        public List<Node> NodeHistory = new();
+        List<Node> NodeList;
+        List<Node> NodeHistory = new();
 
         public FSM(int nodeAmount)
         {
@@ -50,11 +50,22 @@ namespace AR_Opdracten_Collectie.Summatieve_2
                 if (_NewNode == null)
                 {
                     Console.WriteLine($"Node Error bij: {_CurrentNode.Name}");
-                    break;
+                    return;
                 }
                 NodeHistory.Add(_NewNode);
             }
 
         }
+
+        public List<Node> GetNodeListNodes()
+        {
+            return NodeList;
+        }
+        public List<Node> GetNodeHistoryNodes()
+        {
+            return NodeHistory;
+        }
+
+
     }
 }
