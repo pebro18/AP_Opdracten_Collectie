@@ -12,16 +12,16 @@ namespace AR_Opdracten_Collectie.Summatieve_2
             Name = name;
         }
 
-        public void AddNodeToList(int _key, Node _node)
+        public void AddNodeToDict(int _key, Node _node)
         {
             ConnectingNodesList.Add(_key, _node);
         }
 
-        public Node GotoConnectingNode(int GoToNodeKey)
+        public Node GetConnectingNode(int NodeKey)
         {
-            if (ConnectingNodesList.ContainsKey(GoToNodeKey))
+            if (ConnectingNodesList.ContainsKey(NodeKey))
             {
-                return ConnectingNodesList[GoToNodeKey]; ;
+                return ConnectingNodesList[NodeKey]; ;
             }
             return null;
         }

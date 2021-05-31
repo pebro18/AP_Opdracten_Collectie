@@ -82,7 +82,7 @@ namespace Summatieve2tests
 
             //Act
             int[] Commands = new[] { 1, 4 };
-            Machiene.GoToNextNode(Commands);
+            Machiene.StartNodeGen(Commands);
 
             //Assert
             Node[] Expected = new[]
@@ -116,7 +116,7 @@ namespace Summatieve2tests
 
             //Act
             int[] Commands = new[] { 1, 2, 3, 1, 2 };
-            Machiene.GoToNextNode(Commands);
+            Machiene.StartNodeGen(Commands);
 
             //Assert
             Node[] Expected = new[]

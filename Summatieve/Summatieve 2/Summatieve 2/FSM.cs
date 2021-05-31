@@ -32,7 +32,7 @@ namespace AR_Opdracten_Collectie.Summatieve_2
                 Node Found = NodeList.Find(x => x.Name == number.ToString());
                 if (Found != null)
                 {
-                    TargetNode.AddNodeToList(number,Found);
+                    TargetNode.AddNodeToDict(number,Found);
                 }
                 else
                 {
@@ -41,12 +41,12 @@ namespace AR_Opdracten_Collectie.Summatieve_2
             }
         }
 
-        public void GoToNextNode(int[] NodeNummer)
+        public void StartNodeGen(int[] NodeNummer)
         {
             foreach (int nummer in NodeNummer)
             {
                 Node _CurrentNode = NodeHistory.Last();
-                Node _NewNode = _CurrentNode.GotoConnectingNode(nummer);
+                Node _NewNode = _CurrentNode.GetConnectingNode(nummer);
                 if (_NewNode == null)
                 {
                     Console.WriteLine($"Node Error bij: {_CurrentNode.Name}");

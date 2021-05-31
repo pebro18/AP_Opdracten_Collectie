@@ -23,7 +23,7 @@ namespace AR_Opdracten_Collectie.Summatieve_2
             string InputCommands = Console.ReadLine();
             string[] Commands = InputCommands.Split(',');
             int[] ParsedCommands = Array.ConvertAll(Commands, int.Parse);
-            StateMachiene.GoToNextNode(ParsedCommands);
+            StateMachiene.StartNodeGen(ParsedCommands);
 
             foreach (var Node in StateMachiene.GetNodeHistoryNodes())
             {
